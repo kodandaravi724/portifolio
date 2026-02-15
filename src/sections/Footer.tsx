@@ -1,4 +1,4 @@
-import { Heart, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 const quickLinks = [
   { label: 'About', href: '#about' },
