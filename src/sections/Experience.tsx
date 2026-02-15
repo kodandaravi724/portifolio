@@ -110,9 +110,9 @@ const Experience = () => {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div 
-            className={`absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-coral to-cyan-500 transition-all duration-1500 ${
+          {/* Timeline Line (no nodes - clean vertical line only) */}
+          <div
+            className={`absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-[#ff6b35] to-cyan-500 transition-all duration-1500 ${
               isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
             }`}
             style={{ transformOrigin: 'top', transitionDelay: '200ms' }}
@@ -135,32 +135,46 @@ const Experience = () => {
                     transitionTimingFunction: 'var(--ease-spring)'
                   }}
                 >
-                  <div className={`grid md:grid-cols-2 gap-8 items-center ${isLeft ? '' : 'md:direction-rtl'}`}>
-                    {/* Content Side */}
-                    <div className={`${isLeft ? 'md:pr-12 md:text-right' : 'md:col-start-2 md:pl-12'}`}>
-                      <div 
+                  <div className="pl-12">
+                    {/* Content - left-aligned so wrapped lines start from the left */}
+                      <div
                         className="group relative bg-[#0f0f16] rounded-xl p-6 border border-gray-800 hover:border-cyan-500/30 transition-all duration-500 cursor-pointer"
                         onClick={() => setExpandedIndex(isExpanded ? null : index)}
                       >
                         {/* Glow Effect */}
-                        <div className={`absolute inset-0 rounded-xl bg-gradient-to-br from-${exp.color}-500/0 to-${exp.color}-500/0 group-hover:from-${exp.color}-500/5 group-hover:to-${exp.color}-500/5 transition-all duration-500`} />
-                        
+                        <div
+                          className={`absolute inset-0 rounded-xl transition-all duration-500 ${
+                            exp.color === 'cyan'
+                              ? 'bg-gradient-to-br from-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:to-cyan-500/5'
+                              : 'bg-gradient-to-br from-[#ff6b35]/0 to-[#ff6b35]/0 group-hover:from-[#ff6b35]/5 group-hover:to-[#ff6b35]/5'
+                          }`}
+                        />
                         {/* Header */}
                         <div className="relative">
-                          <div className={`flex items-center gap-3 mb-2 ${isLeft ? 'md:justify-end' : ''}`}>
-                            <div className={`w-10 h-10 rounded-lg bg-${exp.color}-500/20 flex items-center justify-center border border-${exp.color}-500/30`}>
-                              <Briefcase className={`w-5 h-5 text-${exp.color}-400`} />
+                          <div className="flex items-center gap-3 mb-2">
+                            <div
+                              className={`w-10 h-10 rounded-lg flex items-center justify-center border ${
+                                exp.color === 'cyan'
+                                  ? 'bg-cyan-500/20 border-cyan-500/30'
+                                  : 'bg-[#ff6b35]/20 border-[#ff6b35]/30'
+                              }`}
+                            >
+                              <Briefcase
+                                className={exp.color === 'cyan' ? 'w-5 h-5 text-cyan-400' : 'w-5 h-5 text-[#ff8555]'}
+                              />
                             </div>
-                            <div className={isLeft ? 'md:text-right' : ''}>
+                            <div>
                               <h3 className="text-white font-semibold text-lg group-hover:text-cyan-400 transition-colors">
                                 {exp.company}
                               </h3>
-                              <p className={`text-${exp.color}-400 text-sm`}>{exp.role}</p>
+                              <p className={exp.color === 'cyan' ? 'text-cyan-400 text-sm' : 'text-[#ff8555] text-sm'}>
+                                {exp.role}
+                              </p>
                             </div>
                           </div>
-                          
+
                           {/* Meta Info */}
-                          <div className={`flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-3 ${isLeft ? 'md:justify-end' : ''}`}>
+                          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-3">
                             <span className="inline-flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               {exp.period}
@@ -172,27 +186,30 @@ const Experience = () => {
                           </div>
 
                           {/* Description */}
-                          <p className={`text-gray-400 mt-3 ${isLeft ? 'md:text-right' : ''}`}>
+                          <p className="text-gray-400 mt-3 text-left">
                             {exp.description}
                           </p>
 
                           {/* Expand Button */}
-                          <div className={`mt-4 flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors ${isLeft ? 'md:justify-end' : ''}`}>
+                          <div className="mt-4 flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
                             <span>{isExpanded ? 'Show Less' : 'Show More'}</span>
                             <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`} />
                           </div>
 
                           {/* Achievements (Expandable) */}
                           <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                            <ul className={`space-y-2 ${isLeft ? 'md:text-right' : ''}`}>
+                            <ul className="space-y-2 list-none pl-0 text-left">
                               {exp.achievements.map((achievement, achIndex) => (
-                                <li 
-                                  key={achIndex} 
+                                <li
+                                  key={achIndex}
                                   className="flex items-start gap-2 text-gray-400 text-sm"
-                                  style={{ flexDirection: isLeft ? 'row-reverse' : 'row' }}
                                 >
-                                  <span className={`w-1.5 h-1.5 rounded-full bg-${exp.color}-400 mt-1.5 flex-shrink-0`} />
-                                  <span>{achievement}</span>
+                                  <span
+                                    className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${
+                                      exp.color === 'cyan' ? 'bg-cyan-400' : 'bg-[#ff8555]'
+                                    }`}
+                                  />
+                                  <span className="flex-1 min-w-0 text-left">{achievement}</span>
                                 </li>
                               ))}
                             </ul>
@@ -200,12 +217,6 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Timeline Node */}
-                    <div className={`hidden md:flex items-center justify-center ${isLeft ? 'md:col-start-2 md:justify-start' : 'md:justify-end'}`}>
-                      <div className={`relative w-4 h-4 rounded-full bg-${exp.color}-500 border-4 border-[#0a0a0f] glow-${exp.color}`} />
-                    </div>
-                  </div>
                 </div>
               );
             })}

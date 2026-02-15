@@ -91,10 +91,10 @@ const About = () => {
             </p>
             
             <p className="text-gray-400 leading-relaxed">
-              My experience spans across big data technologies including Spark, Kafka, Databricks, 
-              and cloud platforms. I've successfully optimized data processing workflows, achieving 
-              up to <span className="text-cyan-400">40% performance improvements</span> and reducing 
-              incident response times by <span className="text-coral">35%</span>.
+              My experience spans big data technologies—Spark, Kafka, Databricks, and cloud platforms—with 
+              a strong focus on <span className="text-cyan-400">problem solving</span> and 
+              <span className="text-coral"> system design</span>. I break down complex data challenges, 
+              design reliable pipelines, and deliver maintainable solutions.
             </p>
 
             {/* Problem Solving & DSA Section */}
@@ -128,10 +128,10 @@ const About = () => {
             </div>
 
             <p className="text-gray-400 leading-relaxed">
-              I'm passionate about solving complex data challenges and building systems that can 
-              handle massive scale while maintaining reliability and performance. My work has 
-              processed over <span className="text-cyan-400 font-medium">300GB of data monthly</span> 
-              {' '}for telecom and enterprise clients.
+              I'm passionate about solving complex data challenges and building systems that scale 
+              while staying reliable. I bring <span className="text-cyan-400 font-medium">expertise in 
+              problem solving</span> and analytical thinking to every project, from pipeline design 
+              to debugging and optimization.
             </p>
 
             {/* Key Highlights */}
@@ -155,8 +155,8 @@ const About = () => {
                 <div className="text-gray-500 text-sm">Data Sources Integrated</div>
               </div>
               <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800 hover:border-coral/30 transition-colors">
-                <div className="text-coral text-2xl font-bold">35%</div>
-                <div className="text-gray-500 text-sm">Response Time Reduction</div>
+                <div className="text-coral text-2xl font-bold">Scale</div>
+                <div className="text-gray-500 text-sm">Reliable Systems & Pipelines</div>
               </div>
             </div>
           </div>

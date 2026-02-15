@@ -6,6 +6,14 @@ import {
   Server
 } from 'lucide-react';
 
+/** Map numeric level to a proficiency label (no percentages) */
+function getProficiencyLabel(level: number): string {
+  if (level >= 90) return 'Expert';
+  if (level >= 75) return 'Advanced';
+  if (level >= 60) return 'Proficient';
+  return 'Familiar';
+}
+
 const skillCategories = [
   {
     name: 'Programming Languages',
@@ -146,12 +154,26 @@ const Skills = () => {
             >
               <div className="relative bg-[#0f0f16] rounded-xl p-6 border border-gray-800 hover:border-cyan-500/30 transition-all duration-500 h-full">
                 {/* Glow Effect */}
-                <div className={`absolute inset-0 rounded-xl bg-gradient-to-br from-${category.color}-500/0 to-${category.color}-500/0 group-hover:from-${category.color}-500/5 group-hover:to-${category.color}-500/5 transition-all duration-500`} />
+                <div
+                  className={`absolute inset-0 rounded-xl transition-all duration-500 ${
+                    category.color === 'cyan'
+                      ? 'bg-gradient-to-br from-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:to-cyan-500/5'
+                      : 'bg-gradient-to-br from-[#ff6b35]/0 to-[#ff6b35]/0 group-hover:from-[#ff6b35]/5 group-hover:to-[#ff6b35]/5'
+                  }`}
+                />
                 
                 {/* Category Header */}
                 <div className="relative flex items-center gap-3 mb-6">
-                  <div className={`w-10 h-10 rounded-lg bg-${category.color}-500/20 flex items-center justify-center border border-${category.color}-500/30`}>
-                    <category.icon className={`w-5 h-5 text-${category.color}-400`} />
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center border ${
+                      category.color === 'cyan'
+                        ? 'bg-cyan-500/20 border-cyan-500/30'
+                        : 'bg-[#ff6b35]/20 border-[#ff6b35]/30'
+                    }`}
+                  >
+                    <category.icon
+                      className={category.color === 'cyan' ? 'w-5 h-5 text-cyan-400' : 'w-5 h-5 text-[#ff8555]'}
+                    />
                   </div>
                   <h3 className="text-white font-semibold text-lg">{category.name}</h3>
                 </div>
@@ -168,8 +190,12 @@ const Skills = () => {
                           <span className="text-gray-300 text-sm font-medium group-hover/skill:text-white transition-colors">
                             {skill.name}
                           </span>
-                          <span className={`text-${category.color}-400 text-sm font-mono`}>
-                            {isAnimated ? `${skill.level}%` : '0%'}
+                          <span
+                            className={`text-sm font-medium ${
+                              category.color === 'cyan' ? 'text-cyan-400' : 'text-[#ff8555]'
+                            }`}
+                          >
+                            {isAnimated ? getProficiencyLabel(skill.level) : '—'}
                           </span>
                         </div>
                         <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
