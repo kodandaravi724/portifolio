@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { GraduationCap, Calendar, MapPin, Award, Code2, Trophy, Target, Brain } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Award, Trophy } from 'lucide-react';
 
 const educationData = [
   {
@@ -50,11 +50,11 @@ const About = () => {
       id="about"
       className="relative py-24 lg:py-32 overflow-hidden"
     >
-      {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30" />
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-cyan-500/5 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
         <div className="mb-16">
           <span 
@@ -64,105 +64,85 @@ const About = () => {
           >
             &lt;About Me /&gt;
           </span>
+
           <h2 
             className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-white transition-all duration-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: '100ms' }}
           >
-            Passionate About{' '}
-            <span className="gradient-text">Data Engineering</span>
+            Building Scalable{' '}
+            <span className="gradient-text">Lakehouse Platforms</span>
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Column - About Text */}
+          
+          {/* LEFT COLUMN */}
           <div 
             className={`space-y-6 transition-all duration-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{ transitionDelay: '200ms' }}
           >
+
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a <span className="text-cyan-400 font-medium">Data Engineer</span> with expertise 
-              in building scalable data pipelines and distributed systems. I recently completed my 
-              Master's in Computer Science at the University of South Florida with a{' '}
-              <span className="text-coral font-medium">3.9 GPA</span>.
+              I’m a Data Engineer specializing in building scalable Lakehouse 
+              architectures on Databricks. I design and implement Medallion 
+              (Bronze/Silver/Gold) data platforms that transform raw enterprise 
+              data into governed, analytics-ready systems.
             </p>
-            
-            <p className="text-gray-400 leading-relaxed">
-              My experience spans big data technologies—Spark, Kafka, Databricks, and cloud platforms—with 
-              a strong focus on <span className="text-cyan-400">problem solving</span> and 
-              <span className="text-coral"> system design</span>. I break down complex data challenges, 
-              design reliable pipelines, and deliver maintainable solutions.
-            </p>
-
-            {/* Problem Solving & DSA Section */}
-            <div className="bg-gradient-to-r from-cyan-500/10 to-coral/10 rounded-xl p-5 border border-cyan-500/20">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
-                  <Trophy className="w-5 h-5 text-cyan-400" />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold">LeetCode Knight</h4>
-                  <p className="text-gray-400 text-sm">Problem Solving Enthusiast</p>
-                </div>
-              </div>
-              <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                I'm passionate about <span className="text-cyan-400">Data Structures and Algorithms</span>. 
-                Regularly solving complex problems on LeetCode has strengthened my analytical thinking 
-                and ability to design efficient solutions for real-world challenges.
-              </p>
-              <a
-                href="https://leetcode.com/u/UCJTBKG5qL/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1e1e2e] border border-gray-700 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 text-sm text-gray-300 hover:text-cyan-400"
-              >
-                <Code2 className="w-4 h-4" />
-                View My LeetCode Profile
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
 
             <p className="text-gray-400 leading-relaxed">
-              I'm passionate about solving complex data challenges and building systems that scale 
-              while staying reliable. I bring <span className="text-cyan-400 font-medium">expertise in 
-              problem solving</span> and analytical thinking to every project, from pipeline design 
-              to debugging and optimization.
+              At The Friedkin Group, I architect distributed pipelines using 
+              Lakeflow Declarative Pipelines, integrate 7+ heterogeneous enterprise systems, 
+              and standardize deployments across environments using Databricks 
+              Asset Bundles. My focus is on building platform-level solutions — 
+              not just pipelines.
             </p>
 
-            {/* Key Highlights */}
+            <p className="text-gray-400 leading-relaxed">
+              I develop metadata-driven ingestion frameworks, design dimensional 
+              models for high-performance OLAP analytics, enforce Row-Level 
+              Security using Unity Catalog, and automate column-level lineage 
+              using SQL parsing techniques to improve system observability.
+            </p>
+
+            <p className="text-gray-400 leading-relaxed">
+              Previously at Infosys, I engineered distributed Spark pipelines 
+              processing 300GB+ of telecom data monthly, built streaming systems 
+              with Kafka and Flink, and enabled CI/CD for data workflows in 
+              cloud-native environments.
+            </p>
+
+            {/* KEY HIGHLIGHTS */}
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800 hover:border-cyan-500/30 transition-colors">
-                <div className="flex items-center gap-2 mb-2">
-                  <Brain className="w-5 h-5 text-cyan-400" />
-                  <div className="text-cyan-400 text-xl font-bold">DSA</div>
-                </div>
-                <div className="text-gray-500 text-sm">Advanced Problem Solving</div>
+
+              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800">
+                <div className="text-cyan-400 text-2xl font-bold">300GB+</div>
+                <div className="text-gray-500 text-sm">Monthly Data Processing</div>
               </div>
-              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800 hover:border-coral/30 transition-colors">
-                <div className="flex items-center gap-2 mb-2">
-                  <Target className="w-5 h-5 text-coral" />
-                  <div className="text-coral text-xl font-bold">3.9</div>
-                </div>
-                <div className="text-gray-500 text-sm">Master's GPA</div>
+
+              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800">
+                <div className="text-coral text-2xl font-bold">Medallion</div>
+                <div className="text-gray-500 text-sm">Lakehouse Architecture</div>
               </div>
-              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800 hover:border-cyan-500/30 transition-colors">
-                <div className="text-cyan-400 text-2xl font-bold">7+</div>
-                <div className="text-gray-500 text-sm">Data Sources Integrated</div>
+
+              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800">
+                <div className="text-cyan-400 text-2xl font-bold">Lakeflow</div>
+                <div className="text-gray-500 text-sm">Declarative Pipelines</div>
               </div>
-              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800 hover:border-coral/30 transition-colors">
-                <div className="text-coral text-2xl font-bold">Scale</div>
-                <div className="text-gray-500 text-sm">Reliable Systems & Pipelines</div>
+
+              <div className="bg-[#12121a] rounded-lg p-4 border border-gray-800">
+                <div className="text-coral text-2xl font-bold">Unity</div>
+                <div className="text-gray-500 text-sm">Catalog & RLS Governance</div>
               </div>
             </div>
+
           </div>
 
-          {/* Right Column - Education Cards */}
+          {/* RIGHT COLUMN - EDUCATION */}
           <div className="space-y-6">
+
             <h3 
               className={`text-xl font-semibold text-white mb-6 transition-all duration-600 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
@@ -171,7 +151,7 @@ const About = () => {
             >
               Education
             </h3>
-            
+
             {educationData.map((edu, index) => (
               <div
                 key={edu.school}
@@ -179,22 +159,19 @@ const About = () => {
                   isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
                 }`}
                 style={{ 
-                  transitionDelay: `${400 + index * 200}ms`,
-                  transitionTimingFunction: 'var(--ease-spring)'
+                  transitionDelay: `${400 + index * 200}ms`
                 }}
               >
-                <div className="relative bg-[#0f0f16] rounded-xl p-6 border border-gray-800 hover:border-cyan-500/30 transition-all duration-500 card-3d">
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-500/0 to-coral/0 group-hover:from-cyan-500/5 group-hover:to-coral/5 transition-all duration-500" />
-                  
+                <div className="relative bg-[#0f0f16] rounded-xl p-6 border border-gray-800 hover:border-cyan-500/30 transition-all duration-500">
+
                   <div className="relative flex items-start gap-4">
-                    {/* Icon */}
+
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 flex items-center justify-center border border-cyan-500/30">
                       <edu.icon className="w-6 h-6 text-cyan-400" />
                     </div>
-                    
-                    {/* Content */}
+
                     <div className="flex-1 min-w-0">
+
                       <div className="flex items-center gap-2 mb-1">
                         <h4 className="text-white font-semibold text-lg group-hover:text-cyan-400 transition-colors">
                           {edu.school}
@@ -203,8 +180,9 @@ const About = () => {
                           {edu.status}
                         </span>
                       </div>
+
                       <p className="text-gray-400 mt-1">{edu.degree}</p>
-                      
+
                       <div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-gray-500">
                         <span className="inline-flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
@@ -215,55 +193,40 @@ const About = () => {
                           {edu.location}
                         </span>
                       </div>
-                      
-                      {/* GPA Badge */}
+
                       <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coral/10 border border-coral/30">
                         <Award className="w-4 h-4 text-coral" />
-                        <span className="text-coral font-medium text-sm">GPA: {edu.gpa}</span>
+                        <span className="text-coral font-medium text-sm">
+                          GPA: {edu.gpa}
+                        </span>
                       </div>
+
                     </div>
                   </div>
                 </div>
               </div>
             ))}
 
-            {/* LeetCode Stats Card */}
-            <div 
-              className={`group relative transition-all duration-800 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-              }`}
-              style={{ 
-                transitionDelay: '800ms',
-                transitionTimingFunction: 'var(--ease-spring)'
-              }}
+            {/* Small LeetCode Card (Reduced Emphasis) */}
+            <a
+              href="https://leetcode.com/u/UCJTBKG5qL/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-[#0f0f16] rounded-xl p-4 border border-gray-800 hover:border-yellow-500/30 transition-all duration-500"
             >
-              <a
-                href="https://leetcode.com/u/UCJTBKG5qL/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block relative bg-gradient-to-br from-[#1e1e2e] to-[#0f0f16] rounded-xl p-6 border border-gray-800 hover:border-yellow-500/30 transition-all duration-500"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center border border-yellow-500/30">
-                    <Trophy className="w-7 h-7 text-yellow-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold text-lg group-hover:text-yellow-400 transition-colors">
-                      LeetCode Knight
-                    </h4>
-                    <p className="text-gray-400 text-sm mt-1">
-                      Problem solving enthusiast with strong DSA fundamentals
-                    </p>
-                    <div className="flex items-center gap-2 mt-2 text-yellow-400 text-sm">
-                      <span>View Profile</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                  </div>
+              <div className="flex items-center gap-3">
+                <Trophy className="w-5 h-5 text-yellow-400" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">
+                    LeetCode Knight
+                  </h4>
+                  <p className="text-gray-500 text-xs">
+                    Strong DSA & analytical foundations
+                  </p>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
+
           </div>
         </div>
       </div>
